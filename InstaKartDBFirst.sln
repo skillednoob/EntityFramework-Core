@@ -3,12 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBFirstCore.DataAccessLayer", "DBFirstCore.DataAccessLayer\DBFirstCore.DataAccessLayer.csproj", "{739D6E54-64AB-43F2-9A2C-2A908AF7D4E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBFirstCore.ConsoleApp", "DBFirstCore.ConsoleApp\DBFirstCore.ConsoleApp.csproj", "{481138F7-9167-454D-A421-11A48A7ED53C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{739D6E54-64AB-43F2-9A2C-2A908AF7D4E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{739D6E54-64AB-43F2-9A2C-2A908AF7D4E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{739D6E54-64AB-43F2-9A2C-2A908AF7D4E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{739D6E54-64AB-43F2-9A2C-2A908AF7D4E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{481138F7-9167-454D-A421-11A48A7ED53C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{481138F7-9167-454D-A421-11A48A7ED53C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{481138F7-9167-454D-A421-11A48A7ED53C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{481138F7-9167-454D-A421-11A48A7ED53C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC7158BE-45B9-4AAE-8640-A15E9495A047}
 	EndGlobalSection
 EndGlobal
