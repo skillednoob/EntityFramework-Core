@@ -157,6 +157,38 @@ namespace DBFirstCore.ConsoleApp
 			//{
 			//	Console.WriteLine("Some error Occured");
 			//}
+
+			//DELETE------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			//bool status = repository.DeleteProduct("P159");
+			//if (status)
+			//{
+			//	Console.WriteLine("Product details deleted successfully!");
+			//}
+			//else
+			//{
+			//	Console.WriteLine("Some error occurred. Try again!!");
+			//}
+
+			//bool status = repository.DeleteProductsUsingRemoveRange("BMW");
+			//if (status)
+			//{
+			//	Console.WriteLine("Products deleted successfully");
+			//}
+			//else
+			//{
+			//	Console.WriteLine("Some error occurred.Try again!!");
+			//}
+
+			//bool ans = repository.DeleteUserDetails("Meghan@gmail.com");
+			//if (ans)
+			//{
+			//	Console.WriteLine("User Details Deleted Successfully");
+			//}
+			//else
+			//{
+			//	Console.WriteLine("Some Error Occured");
+			//}
+
 		}
 	}
 }

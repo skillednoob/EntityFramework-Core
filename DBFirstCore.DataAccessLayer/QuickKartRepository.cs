@@ -218,6 +218,74 @@ namespace DBFirstCore.DataAccessLayer
 			}
 			return ans;
 		}
+
+		//DELETE
+		public bool DeleteProduct(string productId)
+		{
+			bool ans=false;
+			Product product=context.Products.Find(productId);
+			try
+			{
+				if (product != null)
+				{
+					context.Products.Remove(product);
+					context.SaveChanges();
+					ans = true;
+				}
+			}
+			catch (Exception)
+			{
+
+				ans=false;
+			}
+			return ans;
+		}
+
+		public bool DeleteProductsUsingRemoveRange(string subString)
+		{
+			bool ans = false;
+			List<Product> products = new List<Product>();
+			products=context.Products.Where(p=>p.ProductName.Contains(subString)).ToList();
+			try
+			{
+				if(products != null)
+				{
+					context.Products.RemoveRange(products);
+					context.SaveChanges();
+					ans = true;
+				}
+
+			}
+			catch (Exception)
+			{
+
+				ans=false;
+			}
+			return ans;
+		}
+
+		public bool DeleteUserDetails(string emailID)
+		{
+			bool ans=false;
+			User user = context.Users.Find(emailID);
+			try
+			{
+				if(user != null)
+				{
+					context.Users.Remove(user);
+					context.SaveChanges();
+					ans = true;
+				}
+			}
+			catch (Exception)
+			{
+
+				ans=false;
+			}
+			return ans;
+		}
+
+
 	}
 }
 
