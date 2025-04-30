@@ -117,6 +117,46 @@ namespace DBFirstCore.ConsoleApp
 			//}
 
 
+			//UPDATE------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			//bool result = repository.UpdateCategory(8, "Stationery");
+			//if (result)
+			//{
+			//	Console.WriteLine("Category details updated successfully");
+			//}
+			//else
+			//{
+			//	Console.WriteLine("Something went wrong. Try again!");
+			//}
+
+			//int status = repository.UpdateProduct("P159", 1000);
+			//if (status == 1)
+			//{
+			//	Console.WriteLine("Product price updated successfully!");
+			//}
+			//else
+			//{
+			//	Console.WriteLine("Some error occurred. Try again!!");
+			//}
+
+			//int status = repository.UpdateProductsUsingUpdateRange(8, 10);
+			//if (status == 1)
+			//{
+			//	Console.WriteLine("Products updated successfully!");
+			//}
+			//else
+			//{
+			//	Console.WriteLine("Some error occurred. Try again!!");
+			//}
+
+			//bool result = repository.UpdateUserPassword("Meghan@gmail.com", "GEAHN@1234");
+			//if(result)
+			//{
+			//	Console.WriteLine("Passwrod Updated Succesfully");
+			//}
+			//else
+			//{
+			//	Console.WriteLine("Some error Occured");
+			//}
 		}
 	}
 }

@@ -126,10 +126,98 @@ namespace DBFirstCore.DataAccessLayer
 			return ans;
 		}
 
+		//UPDATE
+		public bool UpdateCategory(byte categoryId, string newCategoryName)
+		{
+			bool ans=false;
+			Category category = new Category();
+			category = context.Categories.Find(categoryId);
+			try
+			{
+				if(category!=null)
+				{
+					category.CategoryName = newCategoryName;
+					context.Categories.Update(category);
+					context.SaveChanges();
+					ans = true;
+				}
 
+			}
+			catch (Exception)
+			{
 
+				ans=false;
+			}
+			return ans;
+		}
 
+		public int UpdateProduct(string productId, decimal price)
+		{
+			int ans=0;
+			Product product=context.Products.Find(productId);
+			try
+			{
+				if (product != null)
+				{
+					product.Price= price;
+					context.SaveChanges();
+					ans = 1;
+				}
 
+			}
+			catch (Exception)
+			{
+
+				ans=-99;
+			}
+			return ans;
+		}
+
+		public int UpdateProductsUsingUpdateRange(int categoryId, int quantityProcured)
+		{
+			int ans = 0;
+			List<Product> plst=new List<Product> ();
+			plst = context.Products.Where(p => p.CategoryId==categoryId).ToList();
+			try
+			{
+				foreach(Product p in plst)
+				{
+					p.QuantityAvailable += quantityProcured;
+				}
+				context.Products.UpdateRange(plst);
+				context.SaveChanges();
+				ans = 1;
+
+			}
+			catch (Exception)
+			{
+
+				ans=-99;
+			}
+			return ans;
+		}
+
+		public bool UpdateUserPassword(string EmailId, string newUserPassword)
+		{
+			bool ans = false;
+			User user = new User();
+			user = context.Users.Find(EmailId);
+			try
+			{
+				if (user != null)
+				{
+					user.UserPassword = newUserPassword;
+					context.SaveChanges();
+					ans = true;
+				}
+			}
+			catch (Exception)
+			{
+
+				ans=false;
+			}
+			return ans;
+		}
 	}
 }
 
