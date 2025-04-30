@@ -66,6 +66,68 @@ namespace DBFirstCore.DataAccessLayer
 			return lstProduct;
 		}
 
+		//CREATE
+		public bool AddCategory(string categoryName)
+		{
+			bool ans=false;
+			try
+			{
+				Category category = new Category();
+				category.CategoryName=categoryName;
+				context.Categories.Add(category);
+				context.SaveChanges();
+				ans=true;
+			}
+			catch (Exception)
+			{
+
+				ans=false;
+			}
+			return ans;
+		}
+
+		public bool AddProductsUsingAddRange(params Product[] products)
+		{
+			bool ans = false;
+			try
+			{
+				context.Products.AddRange(products);
+				context.SaveChanges();
+				ans = true;
+			}
+			catch (Exception)
+			{
+
+				ans=false;
+			}
+			return ans;
+		}
+
+		public bool RegisterUser(string userPassword, string gender, string emailId, DateTime dateOfBirth, string address)
+		{
+			bool ans=false;
+			try
+			{
+				User user = new User();
+				user.UserPassword = userPassword;
+				user.Gender = gender;
+				user.EmailId = emailId;
+				user.DateOfBirth = DateOnly.FromDateTime(dateOfBirth);
+				user.Address = address;
+				context.Users.Add(user);
+				context.SaveChanges ();
+				ans=true;
+			}
+			catch (Exception)
+			{
+
+				ans=false;
+			}
+			return ans;
+		}
+
+
+
 
 
 	}

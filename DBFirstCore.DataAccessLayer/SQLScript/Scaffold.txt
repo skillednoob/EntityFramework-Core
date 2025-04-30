@@ -1,1 +1,1 @@
-﻿Scaffold-DbContext "Data Source=GTR\SQLEXPRESS;Initial Catalog=QuickKartDB;Integrated Security=true;TrustServerCertificate=True" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+﻿Scaffold-DbContext "Data Source=GTR\;Initial Catalog=Quick;Integrated Security=true;TrustServerCertificate=True" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
