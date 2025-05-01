@@ -189,6 +189,39 @@ namespace DBFirstCore.ConsoleApp
 			//	Console.WriteLine("Some Error Occured");
 			//}
 
+			//STORED PROCEDURE------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			//byte categoryId = 0;
+			//int returnResult = repository.AddCategoryDetailsUsingUSP("Footwear", out categoryId);
+			//if (returnResult > 0)
+			//{
+			//	Console.WriteLine("Category details added successfully with CategoryId = " + categoryId);
+			//}
+			//else
+			//{
+			//	Console.WriteLine("Some error occurred. Try again!");
+			//}
+
+			//int rr = repository.RegisterNewUser("Swsw@1234", "M", "veer@gmail.com", new DateTime(1978, 02, 12), "Palghar", 2);
+			//if(rr > 0)
+			//{
+			//	Console.WriteLine("Added/Regitser user successfully");
+			//}
+			//else
+			//{
+			//	Console.WriteLine("Some Error Occured");
+			//}
+
+			long purchaseId = 0;
+			int rr = repository.InsertPurchaseDetails("veer@gmail.com", "P104", 3, out purchaseId);    //make sure quantitypurchased is less than quantity available
+			if (rr > 0)
+			{
+				Console.WriteLine("Inserted Succesfully with PurchaseId = " + purchaseId);
+			}
+			else
+			{
+				Console.WriteLine("Some Error Occured");
+			}
+
 		}
 	}
 }

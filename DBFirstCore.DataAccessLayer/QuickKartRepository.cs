@@ -1,4 +1,5 @@
 ﻿using DBFirstCore.DataAccessLayer.Models;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -285,6 +286,108 @@ namespace DBFirstCore.DataAccessLayer
 			return ans;
 		}
 
+		//STORED PROCEDURE
+		public int AddCategoryDetailsUsingUSP(string categoryName, out byte categoryId)
+		{
+			categoryId = 0;
+			int noOfRowsAffected = 0;
+			int returnResult = 0;
+
+
+			SqlParameter prmCategoryName = new SqlParameter("@CategoryName", categoryName);
+
+			SqlParameter prmCategoryId = new SqlParameter("@CategoryId", System.Data.SqlDbType.TinyInt);
+			prmCategoryId.Direction = System.Data.ParameterDirection.Output;
+
+			SqlParameter prmReturnResult = new SqlParameter("@ReturnResult", System.Data.SqlDbType.Int);
+			prmReturnResult.Direction = System.Data.ParameterDirection.Output;
+			try
+			{
+				noOfRowsAffected=context.Database.ExecuteSqlRaw("EXEC @ReturnResult = usp_AddCategory @CategoryName, @CategoryId OUT",prmReturnResult, prmCategoryName, prmCategoryId);
+
+				returnResult = Convert.ToInt32(prmReturnResult.Value);
+				categoryId = Convert.ToByte(prmCategoryId.Value);
+			}
+			catch (Exception ex)
+			{
+				categoryId = 0;
+				noOfRowsAffected = -1;
+				returnResult = -99;
+			}
+			return returnResult;
+		}
+
+		public int RegisterNewUser(string userPassword, string gender, string emailId, DateTime dateOfBirth, string address, int roleId)
+		{
+			int noOfRowsAffected = 0;
+			int returnResult = 0;
+
+			SqlParameter prmUserPassword = new SqlParameter("@UserPassword", userPassword);
+			SqlParameter prmGender = new SqlParameter("@Gender", gender);
+			SqlParameter prmEmailId = new SqlParameter("@EmailId", emailId);
+			SqlParameter prmDOB = new SqlParameter("@DateOfBirth", dateOfBirth);
+			SqlParameter prmAddress = new SqlParameter("@Address", address);
+
+			SqlParameter prmReturnResult = new SqlParameter("@ReturnResult", System.Data.SqlDbType.Int);
+			prmReturnResult.Direction = System.Data.ParameterDirection.Output;
+
+			try
+			{
+				noOfRowsAffected = context.Database.ExecuteSqlRaw("EXEC @ReturnResult = usp_RegisterUser @UserPassword, @Gender, @EmailId, @DateOfBirth, @Address", prmReturnResult, prmUserPassword, prmGender, prmEmailId, prmDOB, prmAddress);
+				if(noOfRowsAffected>0)
+				{
+					returnResult = Convert.ToInt32(noOfRowsAffected);
+				}
+			}
+			catch (Exception)
+			{
+
+				noOfRowsAffected=-1;
+				returnResult = -99;
+			}
+			return returnResult;
+		}
+
+		public int InsertPurchaseDetails(string emailId, string productId, int quantityPurchased, out long purchaseId)
+		{
+			int returnResult = 0;
+			purchaseId = 0;
+			int noOfRowsAffected = 0;
+
+			SqlParameter prmEmailId = new SqlParameter("@EmailId", emailId);
+			SqlParameter prmProductId = new SqlParameter("@ProductId", productId);
+			SqlParameter prmqp = new SqlParameter("@QuantityPurchased", quantityPurchased);
+
+			SqlParameter prmPId = new SqlParameter("@PurchaseId", System.Data.SqlDbType.BigInt);
+			prmPId.Direction = System.Data.ParameterDirection.Output;
+
+			SqlParameter prmReturnResult = new SqlParameter("@ReturnResult", System.Data.SqlDbType.Int);
+			prmReturnResult.Direction = System.Data.ParameterDirection.Output;
+
+			try
+			{
+				//noOfRowsAffected = context.Database.ExecuteSqlRaw("Exec @ReturnResult = usp_InsertPurchaseDetails @EmailId,@ProductId,@QuantityPurchased,@PurchaseId OUT", prmReturnResult, prmEmailId, prmProductId, prmqp, prmPId);
+				// Corrected parameter order - return value parameter comes first in the collection
+				noOfRowsAffected = context.Database.ExecuteSqlRaw("EXEC @ReturnResult = usp_InsertPurchaseDetails @EmailId, @ProductId, @QuantityPurchased, @PurchaseId OUTPUT", prmReturnResult, prmEmailId, prmProductId, prmqp, prmPId);
+
+				if (noOfRowsAffected>0)
+				{
+					returnResult = (prmReturnResult.Value != DBNull.Value) ? Convert.ToInt32(prmReturnResult.Value) : -99;
+					purchaseId = (prmPId.Value != DBNull.Value) ? Convert.ToInt64(prmPId.Value) : 0;
+					//returnResult =Convert.ToInt32(prmReturnResult.Value);
+					//purchaseId=Convert.ToInt64(prmPId.Value);
+				}
+
+			}
+			catch (Exception)
+			{
+
+				returnResult=-1;
+				noOfRowsAffected = 0;
+				purchaseId = -99;
+			}
+			return returnResult;
+		}
 
 	}
 }
