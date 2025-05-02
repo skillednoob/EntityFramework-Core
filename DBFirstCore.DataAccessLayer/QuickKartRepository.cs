@@ -18,6 +18,7 @@ namespace DBFirstCore.DataAccessLayer
 		}
 
 
+		//READ
 		public List<Category> GetAllCategories()
 		{
 			var categoriesList = context.Categories.OrderBy(c => c.CategoryId).ToList();
@@ -387,6 +388,40 @@ namespace DBFirstCore.DataAccessLayer
 				purchaseId = -99;
 			}
 			return returnResult;
+		}
+
+		//TABLE VALUED FUNCTIONS
+		public List<ProductCategoryName> GetProductsUsingTVF(byte categoryId)
+		{
+			List<ProductCategoryName> lstProduct;
+			try
+			{
+				SqlParameter prmCategoryId = new SqlParameter("@CategoryId", categoryId);
+				lstProduct = context.ProductCategoryNames.FromSqlRaw("SELECT * FROM ufn_GetProductCategoryDetails(@CategoryId)", prmCategoryId).ToList();
+					 //context.ProductCategoryNames.FromSqlRaw("SELECT * FROM ufn_GetProductCategoryDetails(@CategoryId)",prmCategoryId).ToList();
+			}
+			catch (Exception)
+			{
+				lstProduct=null;
+			}
+			return lstProduct;
+		}
+
+		public List<Product> GetProductDetails(byte categoryId)
+		{
+			List<Product> lstProduct;
+			try
+			{
+				SqlParameter prmCId = new SqlParameter("@CategoryId", categoryId);
+				lstProduct=context.Products.FromSqlRaw("SELECT * FROM ufn_GetProductDetails(@CategoryId)",prmCId).ToList();
+
+			}
+			catch (Exception)
+			{
+
+				lstProduct=null;
+			}
+			return lstProduct;
 		}
 
 	}

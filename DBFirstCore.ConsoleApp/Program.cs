@@ -211,17 +211,49 @@ namespace DBFirstCore.ConsoleApp
 			//	Console.WriteLine("Some Error Occured");
 			//}
 
-			long purchaseId = 0;
-			int rr = repository.InsertPurchaseDetails("veer@gmail.com", "P104", 3, out purchaseId);    //make sure quantitypurchased is less than quantity available
-			if (rr > 0)
-			{
-				Console.WriteLine("Inserted Succesfully with PurchaseId = " + purchaseId);
-			}
-			else
-			{
-				Console.WriteLine("Some Error Occured");
-			}
+			//long purchaseId = 0;
+			//int rr = repository.InsertPurchaseDetails("veer@gmail.com", "P104", 3, out purchaseId);    //make sure quantitypurchased is less than quantity available
+			//if (rr > 0)
+			//{
+			//	Console.WriteLine("Inserted Succesfully with PurchaseId = " + purchaseId);
+			//}
+			//else
+			//{
+			//	Console.WriteLine("Some Error Occured");
+			//}
 
+			//TABLE VALUED FUNCTION------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			//byte categoryId = 3;
+			//var products = repository.GetProductsUsingTVF(categoryId);
+			//Console.WriteLine("{0, -12}{1, -30}{2}", "ProductId", "ProductName", "CategoryName");
+			//Console.WriteLine("------------------------------------------------------");
+			//if (products == null || products.Count == 0)
+			//{
+			//	Console.WriteLine("No products available under the given category!");
+			//}
+			//else
+			//{
+			//	foreach (var product in products)
+			//	{
+			//		Console.WriteLine("{0, -12}{1, -30}{2}", product.ProductId, product.ProductName, product.CategoryName);
+			//	}
+			//}
+
+			//byte cId = 1;
+			//var prods=repository.GetProductDetails(cId);
+			//Console.WriteLine("{0, -12}{1, -30}{2, -30}{3, -30}", "ProductId", "ProductName", "Price","QuantityAvailabe","CategoryId");
+			//Console.WriteLine("-----------------------------------------------------------------------------------------------------");
+			//if(prods != null)
+			//{
+			//	foreach(var pro in prods)
+			//	{
+			//		Console.WriteLine("{0, -12}{1, -30}{2, -30}{3, -30}", pro.ProductId, pro.ProductName, pro.Price, pro.QuantityAvailable, pro.CategoryId);
+			//	}
+			//}
+			//else
+			//{
+			//	Console.WriteLine("No Products for given categoryId");
+			//}
 		}
 	}
 }
