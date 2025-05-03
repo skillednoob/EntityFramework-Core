@@ -61,6 +61,9 @@ Setup Guide
   
        ├── QuickKartDB.txt         # SQL script to create DB and schema  
        
-       └── Scaffold.txt            # Example Scaffold command
+       └── Scaffold.txt            # Example Scaffold command  
+
+Note  
+used appsettings.json file to store the connection string
 
  

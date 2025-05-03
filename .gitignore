@@ -12,6 +12,10 @@ node_modules/
 *.userosscache
 *.sln.docstates
 
+# Ignore appsettings.json (use environment-specific or secrets)
+appsettings.json
+appsettings.*.json
+
 ## Visual Studio Code
 .vscode/
 
