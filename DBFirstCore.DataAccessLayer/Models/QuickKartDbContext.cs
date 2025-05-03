@@ -147,5 +147,26 @@ public partial class QuickKartDbContext : DbContext
         OnModelCreatingPartial(modelBuilder);
     }
 
-    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+	//SACALAR VALUED FUNCTION
+	[DbFunction()]
+	public static string ufn_GenerateNewProductId()
+	{
+		return null;
+	}
+
+	[DbFunction("ufn_CheckEmailId", "dbo")]
+	public static bool ufn_CheckEmailId(string emailId)
+	{
+		return false;
+	}
+    [DbFunction()]
+    public static int ufn_ValidateUserCredentials(string username, string password)
+    {
+        return 0;
+    }
+
+
+
+
+	partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

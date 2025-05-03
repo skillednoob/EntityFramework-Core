@@ -424,6 +424,57 @@ namespace DBFirstCore.DataAccessLayer
 			return lstProduct;
 		}
 
+		//SCALAR VALUED FUNCTIONS
+		public string GetNewProductId()
+		{
+			string productId = string.Empty;
+			try
+			{
+				productId = (from s in context.Products
+							 select QuickKartDbContext.ufn_GenerateNewProductId())
+							 .FirstOrDefault();
+			}
+			catch (Exception ex)
+			{
+				productId = null;
+			}
+			return productId;
+		}
+
+		public bool CheckEmailId(string emailId)
+		{
+			bool result;
+			try
+			{
+				result = (from p in context.Users
+						  select QuickKartDbContext.ufn_CheckEmailId(emailId))
+						  .FirstOrDefault();
+			}
+			catch (Exception ex)
+			{
+				result = false;
+			}
+
+			return result;
+		}
+
+		public int GetRoleId(string emailId,string password)
+		{
+			int roleId = 0;
+			try
+			{
+				roleId = (from s in context.Users
+						  select QuickKartDbContext.ufn_ValidateUserCredentials(emailId, password)).FirstOrDefault();
+
+			}
+			catch (Exception)
+			{
+
+				roleId=0;
+			}
+			return roleId;
+		}
+
 	}
 }
 

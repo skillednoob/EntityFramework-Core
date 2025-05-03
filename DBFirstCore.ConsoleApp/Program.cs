@@ -254,6 +254,38 @@ namespace DBFirstCore.ConsoleApp
 			//{
 			//	Console.WriteLine("No Products for given categoryId");
 			//}
+
+
+			//SCALAR VALUED FUNCTION------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			//string productId = repository.GetNewProductId();
+			//Console.WriteLine("New ProductId = " + productId);
+			//Console.WriteLine();
+
+			//bool result = repository.CheckEmailId("Ivy@gmail.com");
+			//if (result)
+			//{
+			//	Console.WriteLine("EMailId can be used to register new user!");
+			//}
+			//else
+			//{
+			//	Console.WriteLine("EmailId exists! Please use a new EmailId!!");
+			//}
+
+			//string emailId = "MeetRoda@yahoo.co.in";
+			//string password = "ChristaRocks";
+			//int roleid=repository.GetRoleId(emailId, password);
+			//if (roleid == 0)
+			//{
+			//	Console.WriteLine("wrong credentails");
+			//}
+			//else if(roleid == 1)
+			//{
+			//	Console.WriteLine("Admin Type");
+			//}
+			//else
+			//{
+			//	Console.WriteLine("User Type");
+			}
 		}
 	}
 }
