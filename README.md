@@ -1,12 +1,18 @@
 # EntityFramework-Core
-A .NET (C#) demo showcasing EF Core with Database-First approach, CRUD operations, stored procedures, and SQL functions.
+A .NET (C#) demo showcasing EF Core with Database-First approach, CRUD operations, stored procedures, and SQL functions.  
+
 
 🌟 Key Features
- Full CRUD Operations (Create, Read, Update, Delete)
- Stored Procedures (SPs) called from C#
- Table-Valued Functions (TVFs) mapped to LINQ
- Scalar-Valued Functions executed in queries
- Database-First Approach (Scaffolded models)
+ Full CRUD Operations (Create, Read, Update, Delete)  
+ 
+ Stored Procedures (SPs) called from C#  
+ 
+ Table-Valued Functions (TVFs) mapped to LINQ  
+ 
+ Scalar-Valued Functions executed in queries  
+ 
+ Database-First Approach (Scaffolded models)  
+ 
 
 Setup Guide
 1️⃣ Create the Solution Structure
