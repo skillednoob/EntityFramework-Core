@@ -21,7 +21,8 @@ Setup Guide
 1. Create a blank solution  
 2. Add a class library project (for models/repositories)
 3. Add a console application (as the startup project)
-4. Add a reference to the class library in the console app
+4. Add a reference to the class library in the console app  
+
 2️⃣ Install Required Packages
 
   Microsoft.EntityFrameworkCore.SqlServer  
@@ -45,14 +46,21 @@ Setup Guide
 
 📂 Code Structure  
 
-/DBFirstCore.ConsoleApp
-  └── Program.cs                   # Demo executions
+/DBFirstCore.ConsoleApp  
 
-/DBFirstCore.DataAccessLayer
-  ├── Models/                      # Scaffolded entity classes and DbContext
-  ├── QuickKartRepository.cs       # CRUD + SP + TVF + Scalar Function logic
-  └── SQLScript/
-       ├── QuickKartDB.txt         # SQL script to create DB and schema
+  └── Program.cs                   # Demo executions  
+  
+
+/DBFirstCore.DataAccessLayer  
+
+  ├── Models/                      # Scaffolded entity classes and DbContext  
+  
+  ├── QuickKartRepository.cs       # CRUD + SP + TVF + Scalar Function logic  
+  
+  └── SQLScript/  
+  
+       ├── QuickKartDB.txt         # SQL script to create DB and schema  
+       
        └── Scaffold.txt            # Example Scaffold command
 
  
