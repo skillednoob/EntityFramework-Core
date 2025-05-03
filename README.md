@@ -14,24 +14,37 @@ A .NET (C#) demo showcasing EF Core with Database-First approach, CRUD operation
  Database-First Approach (Scaffolded models)  
  
 
-Setup Guide
-1️⃣ Create the Solution Structure
-  # Step 1: Create blank solution 
-  # Step 2: Create class library (for models/repositories)
-  # Step 3: Create console app (startup project)
-  # Step 4: Add reference to class library
-2️⃣ Install Required Packages
-  Microsoft.EntityFrameworkCore.SqlServer
-  Microsoft.EntityFrameworkCore.Design
-  ⚠️ Key Notes:
-  Only Microsoft.EntityFrameworkCore.Design is needed in the console app (for Package Manager Console commands).
-  Avoid redundant packages (e.g., Microsoft.EntityFrameworkCore.Tools is included in .Design).
-3️⃣ Database Setup
-  Run the SQL script 
-4️⃣ Scaffold DbContext & Models
-  In Package Manager Console (PMC) in Visual Studio
+Setup Guide  
 
-📂 Code Structure
+1️⃣ Create the Solution Structure  
+
+1. Create a blank solution  
+2. Add a class library project (for models/repositories)
+3. Add a console application (as the startup project)
+4. Add a reference to the class library in the console app
+2️⃣ Install Required Packages
+
+  Microsoft.EntityFrameworkCore.SqlServer  
+  
+  Microsoft.EntityFrameworkCore.Design  
+  
+  ⚠️ Key Notes:  
+  
+  Only Microsoft.EntityFrameworkCore.Design is needed in the console app (for Package Manager Console commands).  
+  
+  Avoid redundant packages (e.g., Microsoft.EntityFrameworkCore.Tools is included in .Design).  
+  
+3️⃣ Database Setup  
+
+  Run the SQL script   
+  
+4️⃣ Scaffold DbContext & Models  
+
+  In Package Manager Console (PMC) in Visual Studio  
+  
+
+📂 Code Structure  
+
 /DBFirstCore.ConsoleApp
   └── Program.cs                   # Demo executions
 
